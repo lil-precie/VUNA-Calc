@@ -94,6 +94,26 @@ function calculateResult() {
   updateResult();
 }
 
+function applyLogarithm() {
+  if (left.length === 0) return;
+
+  const num = parseFloat(left);
+  if (num <= 0) {
+    left = "Error";
+  } else {
+    const result = Math.log10(num);
+    if (steps.length < MAX_STEPS) {
+      steps.push(`Step ${steps.length + 1}: log10(${num}) = ${result}`);
+    }
+    left = result.toString();
+  }
+
+  right = "";
+  operator = "";
+  updateStepsDisplay();
+  updateResult();
+}
+
 
 
 function numberToWords(num) {
